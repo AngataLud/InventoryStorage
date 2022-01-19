@@ -8,8 +8,7 @@ namespace InventoryStorage.Models
 {
     public class Item
     {
-       
-        [Required]
+        [Key]
         public int Id { get; set; }
 
         [Required]
