@@ -80,16 +80,7 @@ namespace InventoryStorage.Controllers
             return RedirectToAction("Index");
         }
         //GET
-        public IActionResult Search(int?Id)
-        {
-            var obj =_db.Items.Find(Id);
-
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
-        }
+        
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public IActionResult Search(Item obj)
