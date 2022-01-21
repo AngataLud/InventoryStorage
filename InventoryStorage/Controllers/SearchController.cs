@@ -1,9 +1,11 @@
 ﻿using InventoryStorage.Data;
+using InventoryStorage.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace InventoryStorage.Controllers
 {
@@ -18,14 +20,19 @@ namespace InventoryStorage.Controllers
         {
             return View();
         }
-        public IActionResult Search(int? Id)
+        public IActionResult Search()
         {
-            var obj = _db.Items.Find(Id);
-
-            if (obj == null)
+          
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Search(Item obj)
+        {
+            if (obj==null)
             {
                 return NotFound();
             }
+            _db.Items.FindAsync(obj);
             return View(obj);
         }
     }
