@@ -1,22 +1,59 @@
-﻿@model InventoryStorage.Models.Item
+﻿@model IEnumerable<InventoryStorage.Models.Item>
 @{
     ViewData["Title"] = "Търсене на предмет по номер";
 }
 <h1>Търсене на предмет по номер</h1>
-<form method="post" asp-controller="Search" asp-action="Search">
+<form method="get" asp-controller="Search" asp-action="Search">
     <div class="row">
         <div class="col-12">
-            <div asp-validation-summary="All" class="text-danger"></div>
+            <b>Търсене по:</b>
+            @Html.RadioButton("searchBy", "Id", true)  Номер
+            @Html.RadioButton("searchBy", "ItemName")  Име
+            @Html.RadioButton("searchBy", "Description")  Описание
+            @Html.RadioButton("searchBy", "Location")  Локация
+            @*</div>*@
             <div class=" form-group row">
-                <label class="col-2 m-1 form-control" asp-for="Id">Номер</label>
+                @Html.TextBox("search")
             </div>
-            <div class=" form-group row">
-                <input class="col-2  form-control m-1" asp-for="Id" />
-            </div>
-            <div class=" form-group row">
-                <button type="submit" class="col-3 btn btn-success m-1">Запазване</button>
-                <button asp-action="Index" class="col-3 btn btn-danger m-1">Назад</button>
+            <div class="form-group row">
+                <input type="submit" class="col-3 btn btn-success m-1" value="Търсене" />
             </div>
         </div>
+        @if (Model.Count() == 0)
+        {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Номер</th>
+                    <th>Име</th>
+                    <th>Описание</th>
+                    <th>Местоположение</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+        else
+        {
+            <b>Няма въведени премтети!</b>
+        }
     </div>
 </form>

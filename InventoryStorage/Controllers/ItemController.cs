@@ -79,18 +79,6 @@ namespace InventoryStorage.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //GET
-        
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Search(Item obj)
-        //{
-            
-        //    if (obj == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(obj);
-        //}
+       
     }
 }
