@@ -23,7 +23,8 @@
             </div>
         </div>
     </form>
-   
+    @if (Model.Count() > 0)
+    {
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
@@ -36,23 +37,22 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ItemName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Location)
-                    </td>
-                </tr>
+                    <tr>
+                        <td width="10%">@item.Id</td>
+                        <td width="24%">@item.ItemName</td>
+                        <td width="24%">@item.Description</td>
+                        <td width="14%">@item.Location</td>
+                        <td width="24%">
+                            <a class="btn btn-success m-1" asp-controller="Item" asp-action="Update" asp-route-id=@item.Id>Промяна</a>
+                            <a class="btn btn-danger m-1" asp-controller="Item" asp-action="Delete" asp-route-id=@item.Id>Изтриване</a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
-    
-   
+    }
+    else
+    {
+        <p>Няма въведени предмети!</p>
+    }
 </div>
