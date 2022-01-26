@@ -6,10 +6,13 @@
     <title>@ViewData["Title"] - InventoryStorage</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-md-3">
+        <nav class="navbar navbar-toggler navbar-expand-sm navbar-toggleable-sm navbar-light bg-info border-bottom box-shadow mb-md-2">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">InventoryStorage</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -18,11 +21,13 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Index">Таблица с предмети</a>
+                        <li class="nav-item" >
+                            <a class="nav-link text-dark text" asp-area="" asp-controller="Item" asp-action="Index">Таблица с предмети</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">Търсене</a>
+                        </li><li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">История на предмети</a>
                         </li>
                     </ul>
                 </div>
