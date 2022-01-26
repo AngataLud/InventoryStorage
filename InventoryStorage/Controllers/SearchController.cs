@@ -23,7 +23,6 @@ namespace InventoryStorage.Controllers
         }
         public IActionResult Search()
         {
-          
             return View();
         }
         [HttpPost]
@@ -31,17 +30,18 @@ namespace InventoryStorage.Controllers
         {
             if (searchBy == "Id")
             {
-                return View(_db.Items.Where(x => x.Id.Equals(search) || search == null).ToList());
+                return View(_db.Items.Where(x => x.Id.Equals(search)).ToList());
             }
             else if (searchBy == "Description")
             {
-                return View(_db.Items.Where(x => x.Description.StartsWith(search) || search == null).ToList());
+                return View(_db.Items.Where(x => x.Description.StartsWith(search)).ToList());
             }
             else if (searchBy == "ItemName")
             {
-                return View(_db.Items.Where(x => x.ItemName.StartsWith(search) || search == null).ToList());
+                return View(_db.Items.Where(x => x.ItemName.StartsWith(search)).ToList());
             }
-            return View(_db.Items.Where(x => x.Location.Equals(search) || search == null).ToList());
+            return View(_db.Items.Where(x => x.Location.Equals(search)).ToList());
         }
+
     }
 }
