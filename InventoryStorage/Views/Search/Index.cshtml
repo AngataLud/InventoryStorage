@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<InventoryStorage.Models.Item>
-@*@{
+@{
         ViewData["Title"] = "Търсене на предмет по номер";
-    }*@
+    }
 
-<h1>Търсене на предмет по номер</h1>
+<h1>Търсене на предмет</h1>
 <div class="container p-3">
     <form method="get" asp-controller="Search" asp-action="Search">
         <div class="row">
@@ -13,7 +13,7 @@
                 @Html.RadioButton("searchBy", "ItemName")  Име
                 @Html.RadioButton("searchBy", "Description")  Описание
                 @Html.RadioButton("searchBy", "Location")  Локация
-                @*</div>*@
+             
                 <div class=" form-group row">
                     <input type="search" name="search" />
 

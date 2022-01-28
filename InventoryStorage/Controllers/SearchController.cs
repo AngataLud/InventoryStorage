@@ -23,11 +23,14 @@ namespace InventoryStorage.Controllers
         }
         public IActionResult Search()
         {
-            return View();
+            IEnumerable<Item> obj = _db.Items;
+            return View(obj);
         }
         [HttpPost]
         public IActionResult Search(string searchBy, string search)
         {
+
+
             if (searchBy == "Id")
             {
                 return View(_db.Items.Where(x => x.Id.Equals(search)).ToList());
