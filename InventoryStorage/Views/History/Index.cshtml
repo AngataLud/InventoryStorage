@@ -1,25 +1,23 @@
 ﻿@model IEnumerable<InventoryStorage.Models.Item>
 @{
-        ViewData["Title"] = "Търсене на предмет";
-    }
+    ViewData["Title"] = "История на предмети";
+}
 
-<h1>Търсене на предмет</h1>
+<h1>Търсене нa предишно местоположение на предмет</h1>
 <div class="container p-3">
-    <form method="post" asp-controller="Search" asp-action="Search">
+    <form method="post" asp-controller="History" asp-action="Search">
         <div class="row">
             <div class="col-12">
                 <b>Търсене по:</b>
                 @Html.RadioButton("searchBy", "Id", true)  Номер
                 @Html.RadioButton("searchBy", "ItemName")  Име
                 @Html.RadioButton("searchBy", "Description")  Описание
-                @Html.RadioButton("searchBy", "Location")  Локация
-                @*</div>*@
                 <div class=" form-group row">
                     <input type="search" name="search" />
 
                 </div>
                 <div class="form-group row">
-                    <input type="submit" value="Търсене" class="btn btn-success m-1" asp-controller="Search" asp-action="Search" />
+                    <input type="submit" value="Търсене" class="btn btn-success m-1" asp-controller="History" asp-action="Search" />
                 </div>
             </div>
         </div>
@@ -44,8 +42,8 @@
                         <td width="24%">@item.Description</td>
                         <td width="14%">@item.Location</td>
                         <td width="24%">
-                            <a class="btn btn-success m-1" asp-controller="Search" asp-action="Update" asp-route-id=@item.Id>Промяна</a>
-                            <a class="btn btn-danger m-1" asp-controller="Search" asp-action="Delete" asp-route-id=@item.Id>Изтриване</a>
+                            <a class="btn btn-success m-1" asp-controller="History" asp-action="Update" asp-route-id=@item.Id>Промяна</a>
+                            <a class="btn btn-danger m-1" asp-controller="History" asp-action="Delete" asp-route-id=@item.Id>Изтриване</a>
                         </td>
                     </tr>
                 }

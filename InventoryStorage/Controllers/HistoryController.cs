@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace InventoryStorage.Controllers
 {
-    public class SearchController : Controller
+    public class HistoryController : Controller
     {
+
         private readonly ApplicationDbContext _db;
-        public SearchController(ApplicationDbContext db)
+        public HistoryController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -21,7 +22,6 @@ namespace InventoryStorage.Controllers
             IEnumerable<Item> obj = _db.Items;
             return View(obj);
         }
-       
         public IActionResult Search(string searchBy, string search)
         {
             if (searchBy == "Id")
