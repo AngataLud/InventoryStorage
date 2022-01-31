@@ -19,7 +19,7 @@ namespace InventoryStorage.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Item> obj = _db.Items;
+            IEnumerable<ItemHistory> obj = _db.Histories;
             return View(obj);
         }
         public IActionResult Search(string searchBy, string search)

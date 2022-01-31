@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InventoryStorage.Models.Item>
+﻿@model IEnumerable<InventoryStorage.Models.ItemHistory>
 @{
     ViewData["Title"] = "История на предмети";
 }
@@ -31,6 +31,8 @@
                     <th>Име</th>
                     <th>Описание</th>
                     <th>Местоположение</th>
+                    <th>Предишно местоположение</th>
+                    <th>Дата на преместване</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,13 +40,11 @@
                 {
                     <tr>
                         <td width="10%">@item.Id</td>
-                        <td width="24%">@item.ItemName</td>
-                        <td width="24%">@item.Description</td>
-                        <td width="14%">@item.Location</td>
-                        <td width="24%">
-                            <a class="btn btn-success m-1" asp-controller="History" asp-action="Update" asp-route-id=@item.Id>Промяна</a>
-                            <a class="btn btn-danger m-1" asp-controller="History" asp-action="Delete" asp-route-id=@item.Id>Изтриване</a>
-                        </td>
+                        <td width="18%">@item.ItemName</td>
+                        <td width="18%">@item.Description</td>
+                        <td width="12%">@item.Location</td>
+                        <td width="10%">22222</td>
+                        <td width="15%">31.12.2021</td>
                     </tr>
                 }
             </tbody>

@@ -13,5 +13,6 @@ namespace InventoryStorage.Data
 
         }
         public DbSet<Item> Items { get; set; }
+        public DbSet<ItemHistory> Histories { get; set; }
     }
 }
