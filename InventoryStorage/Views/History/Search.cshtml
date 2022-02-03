@@ -2,26 +2,28 @@
 @{
         ViewData["Title"] = "Търсене на предмет по номер";
     }
-<h1>Търсене на предмет</h1>
-<div class="container p-3">
-    <form method="post" asp-controller="History" asp-action="Search">
-        <div class="row">
-            <div class="col-12">
-                <b>Търсене по:</b>
-                @Html.RadioButton("searchBy", "Id", true)  Номер
-                @Html.RadioButton("searchBy", "ItemName")  Име
-                @Html.RadioButton("searchBy", "Description")  Описание
-                <div class=" form-group row">
-                    <input type="search" name="search" />
-                </div>
-                <div class="form-group row">
-                    <input type="submit" value="Търсене" class="btn btn-success m-1" asp-controller="History" asp-action="Search" />
+<body style="background-color: beige; font-family: Verdana, Arial;">
+
+    <h1>Търсене на предмет</h1>
+    <div class="container p-3">
+        <form method="post" asp-controller="History" asp-action="Search">
+            <div class="row">
+                <div class="col-12">
+                    <b>Търсене по:</b>
+                    @Html.RadioButton("searchBy", "Id", true)  Номер
+                    @Html.RadioButton("searchBy", "ItemName")  Име
+                    @Html.RadioButton("searchBy", "Description")  Описание
+                    <div class=" form-group row">
+                        <input type="search" name="search" />
+                    </div>
+                    <div class="form-group row">
+                        <input type="submit" value="Търсене" class="btn btn-success m-1" asp-controller="History" asp-action="Search" />
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-    @if (Model.Count() > 0)
-    {
+        </form>
+        @if (Model.Count() > 0)
+        {
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -36,18 +38,18 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td width="10%">@item.Id</td>
-                <td width="18%">@item.ItemName</td>
-                <td width="18%">@item.Description</td>
-                <td width="12%">@item.Location</td>
-                <td width="10%">@item.OldLocation</td>
-                <td width="15%">@item.DateTimeWhenChanged</td>
-            </tr>
-        }
+<tr>
+    <td width="10%">@item.Id</td>
+    <td width="18%">@item.ItemName</td>
+    <td width="18%">@item.Description</td>
+    <td width="12%">@item.Location</td>
+    <td width="10%">@item.OldLocation</td>
+    <td width="15%">@item.DateTimeWhenChanged</td>
+</tr>}
     </tbody>
 </table> }
-            else
-            {
+else
+{
 <p>Няма въведени предмети!</p>}
-</div>
+    </div>
+</body>

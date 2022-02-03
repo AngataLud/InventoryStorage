@@ -21,7 +21,7 @@ namespace InventoryStorage.Models
         public int Location { get; set; }
         [Required]
         public int OldLocation { get; set; }
-        [Required]
+       
         public DateTime DateTimeWhenChanged { get; set; }
     }
 }

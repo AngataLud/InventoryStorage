@@ -57,13 +57,10 @@ namespace InventoryStorage.Controllers
             {
                 return NotFound();
             }
-            if (ModelState.IsValid)
-            {
                 _db.Items.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            return View(obj);
+          
         }
         public IActionResult Delete(int? Id)
         {
