@@ -26,28 +26,19 @@ namespace InventoryStorage.Controllers
         {
             if (searchBy == "Id")
             {
-                return View(_db.Items.Where(x => x.Id.ToString().Equals(search)).ToList());
+                return View(_db.Histories.Where(x => x.Id.ToString().Equals(search)).ToList());
             }
             else if (searchBy == "Description")
             {
-                return View(_db.Items.Where(x => x.Description.ToLower().StartsWith(search)).ToList());
+                return View(_db.Histories.Where(x => x.Description.ToLower().StartsWith(search)).ToList());
             }
             else if (searchBy == "ItemName")
             {
-                return View(_db.Items.Where(x => x.ItemName.ToLower().StartsWith(search)).ToList());
+                return View(_db.Histories.Where(x => x.ItemName.ToLower().StartsWith(search)).ToList());
             }
-            return View(_db.Items.Where(x => x.Location.ToString().Equals(search)).ToList());
+            return View(_db.Histories.Where(x => x.Location.ToString().Equals(search)).ToList());
         }
-        public IActionResult Update(int? Id)
-        {
-            var obj = _db.Items.Find(Id);
-
-            if (obj == null)
-            {
-                return NotFound();
-            }
-            return View(obj);
-        }
+       
         //Update POST
         [HttpPost]
         [ValidateAntiForgeryToken]

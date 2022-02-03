@@ -8,7 +8,9 @@ BEGIN
 	DECLARE @Description nvarchar(MAX)
 	DECLARE @OldLocation int
 	DECLARE @Location int
-	DECLARE @DateTime datetime
+	DECLARE @DateTimeWhenChanged datetime2
+	if UPDATE(Location)
+	BEGIN
 	SELECT @Id = inserted.Id
 	FROM inserted
 	SELECT @ItemName = inserted.ItemName
@@ -19,11 +21,24 @@ BEGIN
 	from inserted
 	SELECT @Location = inserted.Location
 	from inserted
-	SELECT @DateTime = getdate()
-	FROM INSERTED
+	END
+	
 
-	INSERT INTO Histories
-	VALUES(@Id,@ItemName,@Description,@Location,@OldLocation,@DateTime)
+	INSERT INTO [Histories](
+	Id
+	,[ItemName]
+	,[Description]
+	,[OldLocation]
+	,[Location]
+	,[DateTimeWhenChanged])
+	VALUES(@Id,
+	@ItemName,
+	@Description,
+	@OldLocation,
+	@Location,
+	GETDATE()
+	)
 END
+
 
 

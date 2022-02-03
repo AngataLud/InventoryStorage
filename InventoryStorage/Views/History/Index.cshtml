@@ -3,7 +3,10 @@
     ViewData["Title"] = "История на предмети";
 }
 <body style="background-color: beige; font-family: Verdana, Arial;">
-
+    <br />
+    <br />
+    <br />
+    <br />
     <h1>Търсене нa предишно местоположение на предмет</h1>
     <div class="container p-3">
         <form method="post" asp-controller="History" asp-action="Search">
@@ -25,7 +28,8 @@
         </form>
         @if (Model.Count() > 0)
         {
-            <table class="table table-bordered table-striped" style="width:100%">
+            <table class="table table-bordered borthead-dark table-striped table-hover" style="width:100%;
+                background-color: aliceblue">
                 <thead>
                     <tr>
                         <th>Номер</th>
