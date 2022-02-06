@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<InventoryStorage.Models.Item>
 
-<body style="background-color: ; font-family: Verdana, Arial;">
+<body style="background-color: #FBF8F1; font-family: Verdana, Arial;">
     <br />
     <br />
     <br />
@@ -15,7 +15,7 @@
         </div>
         <br />
         <div class="col-6 text-right" style="float: right;">
-            <a class="btn btn-primary w-55" asp-controller="Item" asp-action="Create">Създаване на нов предмет</a>
+            <a class="btn w-55" asp-controller="Item" asp-action="Create" style="background-color: #24A19C;color:whitesmoke;">Създаване на нов предмет</a>
         </div>
         @if (Model.Count() > 0)
         {

@@ -38,32 +38,5 @@ namespace InventoryStorage.Controllers
             }
             return View(_db.Histories.Where(x => x.Location.ToString().Equals(search)).ToList());
         }
-       
-        //Update POST
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Update(Item obj)
-        {
-            if (obj == null)
-            {
-                return NotFound();
-            }
-                _db.Items.Update(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-          
-        }
-        public IActionResult Delete(int? Id)
-        {
-            var obj = _db.Items.Find(Id);
-
-            if (Id == null)
-            {
-                return NotFound();
-            }
-            _db.Items.Remove(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
     }
 }
