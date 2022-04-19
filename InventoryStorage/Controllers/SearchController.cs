@@ -26,7 +26,7 @@ namespace InventoryStorage.Controllers
         {
             if (searchBy == "Id")
             {
-                return View(_db.Items.Where(x => x.Id.ToString().Equals(search)).ToList());
+                return View(_db.Items.Where(x => x.Id.ToString().StartsWith(search)).ToList());
             }
             else if (searchBy == "Description")
             {
@@ -36,7 +36,7 @@ namespace InventoryStorage.Controllers
             {
                 return View(_db.Items.Where(x => x.ItemName.ToLower().StartsWith(search)).ToList());
             }
-            return View(_db.Items.Where(x => x.Location.ToString().Equals(search)).ToList());
+            return View(_db.Items.Where(x => x.Location.ToString().StartsWith(search)).ToList());
         }
         public IActionResult Update(int? Id)
         {
